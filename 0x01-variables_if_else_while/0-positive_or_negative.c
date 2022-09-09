@@ -30,5 +30,5 @@ int main(void)
 		printf("%d is nefative\n", n);
 	}
 
-	return (0)
+	return (0);
 }
