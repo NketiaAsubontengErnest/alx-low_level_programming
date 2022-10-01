@@ -1,53 +1,60 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 /**
- * isNumeric - checks if string is numeric
- *
- * @s: string to check
- *
- * Return: true if is numeric, otherwise return false
- */
-bool isNumeric(char *s)
-{
-	int i;
+* check_num - check - string there are digit 
+* @str: array str
+*
+* Return: Always 0 (Success)
+*/
 
-	for (i = 0; s[i] != '\0'; i++)
+int check_num(char *str)
+{
+/*Declaring variables*/
+	unsigned int count;
+	count = 0;
+	while (count < strlen(str))
 	{
-		if (s[i] < 48 || s[i] > 57)
+		if (!isdigit(str[count]))
 		{
-			return (false);
+		return (0);
 		}
+		count++;
 	}
-	return (true):
+	return (1);
 }
 
 /**
- * main - Entry point
- *
- * @argc: arg counter
- * @argv: argument array
- *
- * Return: Always 0 (Success)
- */
-int main(int argc, char *argv[])
-{
-	int sum = 0;
-	int i;
-	(void)argc;
-	(void)argv;
+* main - Print the name of the program
+* @argc: Count arguments
+* @argv: Arguments
+* 
+* Return: Always 0 (Success)
+*/
 
-	for (i = 1; i < argc; i++)
+int main(int argc, char *argv[])                                                                                                     
+{
+/*Declaring variables*/
+	int count;
+	int str_to_int;
+	int sum = 0
+
+	count = 1;
+	while (count < argc)
 	{
-		if (!isNumeric(argv[i]))
+		if (check_num(argv[count]))
+		{
+			str_to_int = atoi(argv[count]);
+			sum += str_to_int;
+		}
+		else
 		{
 			printf("Error\n");
 			return (1);
 		}
-		sum += atoi(argv[i]);
+		count++;
 	}
-
 	printf("%d\n", sum);
-
 	return (0);
 }
